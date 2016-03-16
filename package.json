@@ -1,0 +1,26 @@
+{
+  "name": "angular-click-to-edit",
+  "version": "1.0.0",
+  "description": "Click to edit directives for AngularJS inputs",
+  "main": "click-to-edit.js",
+  "scripts": {
+    "test": "gulp watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chukkwagon/angular-click-to-edit.git"
+  },
+  "keywords": [
+    "AngularJS"
+  ],
+  "author": "Charlie McBride",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chukkwagon/angular-click-to-edit/issues"
+  },
+  "homepage": "https://github.com/chukkwagon/angular-click-to-edit#readme",
+  "dependencies": {
+    "gulp": "^3.9.1"
+  },
+  "devDependencies": {}
+}
