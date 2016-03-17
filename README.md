@@ -2,11 +2,11 @@
 
 **Directives to achieve click-to-edit functionality in Angular 1.3+**
 
-## Usage
+## Installation
 
-Click to edit relies on the ng-model of the input field to bind
-and `onSave` function to the input. `onSave` is a function provided
-in the directive declaration that returns a `promise`.
+    bower install angular-click-to-edit --save
+
+Also feel free to fork this repository and customize it to your needs.
 
 ### Basic Usage:
 
@@ -17,6 +17,10 @@ in the directive declaration that returns a `promise`.
         ng-required>
     </click-to-edit>
 
+
+Click to edit relies on the ng-model of the input field to bind
+and `onSave` function to the input. `onSave` is a function provided
+in the directive declaration that returns a `promise`.
 
 Simply decorate the input field with `edit-input` and then wrap it
 with `click-to-edit` to get up and running. We use this two directive
@@ -51,3 +55,7 @@ committed (saved) or cancelled.
 Install dependencies with `npm install`. Run the test suite with `gulp watch`
 which watches the module and test file for changes, or `gulp test` for test
 and exit.
+
+TODO: 
+1. Customize the `save` and `cancel` actions appended to the input field.
+2. Optionally declare the actions you want to listen for on the input.
