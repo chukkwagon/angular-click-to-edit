@@ -33,3 +33,8 @@ Because the directive pair uses `ng-transclude` to jam the input into the
 `click-to-edit` template, you can pass arbitrary attributes into the input
 field and they will work on your scope as expected. This is particularly
 useful for validation controls.
+
+## Development
+
+Install dependencies with `npm install`. Run the test suite with `gulp watch`
+which watches the module and test file for changes.
