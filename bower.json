@@ -1,0 +1,25 @@
+{
+  "name": "angular-click-to-edit",
+  "description": "Click to edit directives for AngularJS inputs",
+  "main": "src/click-to-edit.js",
+  "authors": [
+    "Charlie McBride"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "AngularJS"
+  ],
+  "homepage": "https://github.com/chukkwagon/angular-click-to-edit",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/chukkwagon.angular-click-to-edit.git"
+  },
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
