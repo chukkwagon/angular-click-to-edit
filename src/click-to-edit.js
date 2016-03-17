@@ -2,7 +2,7 @@
     'use strict';
 
 angular
-.module('clickToEdit', [])
+.module('clickToEditDirective', [])
 .directive('editInput', editInput)
 .directive('clickToEdit', clickToEdit);
 
@@ -109,7 +109,15 @@ function clickToEdit($q, $timeout) {
         scope: {
             onSave: '&'
         },
-        templateUrl: 'shared/templates/click-to-edit.tpl.html',
+        template: '<div class="inline-editor">' +
+                       '<span ng-transclude></span>' +
+                        '<div class="editor-actions">' +
+                            '<span ng-show="editor.enabled">' +
+                            '<span ng-mousedown="cancel($event)"><i class="fa fa-times-circle"></i></span>' +
+                            '<span ng-mousedown="save($event)"><i class="fa fa-check-circle"></i></span>' +
+                            '</span>' +
+                        '</div>' +
+                    '</div>',
         controller: ['$scope', function($scope){
             var modelCtrl;
             var initialValue;
@@ -145,13 +153,27 @@ function clickToEdit($q, $timeout) {
 
             // Revert to intial value & pristine
             $scope.cancel = function cancel($event){
+                var inProg = $scope.$root.$$state==='$apply' || $scope.$root.$$state==='$digest';
+                if (inProg) {
+                    $timeout(function() {
+                        safeCancel($event);
+                    });
+                } else {
+                    safeCancel($event);
+                }
+            };
+
+            // $scope.$apply errors were being called intermittently
+            // so if a digest is already in progress, wait and then
+            // disable the function
+            function safeCancel($event) {
                 if ($event) {
                     $event.preventDefault();
                     $event.target.parentNode.parentNode.children[0].children[0].blur();
                 }
                 updateValue(initialValue);
                 $scope.editor.enabled = false;
-            };
+            }
 
             // Execute the parent save function
             // Update the intialValue on success
