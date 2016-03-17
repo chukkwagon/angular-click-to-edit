@@ -6,6 +6,13 @@
 
     bower install angular-click-to-edit --save
 
+After installing and wiring the script into index.html. Inject the 
+module into your root app module like so:
+
+    angular
+    .module('myApp', ['clickToEditDirective']); 
+
+
 Also feel free to fork this repository and customize it to your needs.
 
 ### Basic Usage:
@@ -14,7 +21,7 @@ Also feel free to fork this repository and customize it to your needs.
         <input edit-input type="checkbox"
         ng-model="myModel"
         ng-true-value="Yes"
-        ng-required>
+        ng-required my_custom_validator>
     </click-to-edit>
 
 
@@ -57,5 +64,6 @@ which watches the module and test file for changes, or `gulp test` for test
 and exit.
 
 TODO: 
-1. Customize the `save` and `cancel` actions appended to the input field.
-2. Optionally declare the actions you want to listen for on the input.
+
+* Customize the `save` and `cancel` actions appended to the input field.
+* Optionally declare the actions you want to listen for on the input.
