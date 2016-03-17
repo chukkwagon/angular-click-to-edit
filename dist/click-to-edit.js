@@ -107,15 +107,14 @@ function clickToEdit($q, $timeout) {
         transclude: true,
         restrict: 'E',
         scope: {
-            onSave: '&',
-            allowUncommitted: '@'
+            onSave: '&'
         },
         template: '<div class="inline-editor">' +
                        '<span ng-transclude></span>' +
                         '<div class="editor-actions">' +
                             '<span ng-show="editor.enabled">' +
-                            '<span ng-mousedown="cancel($event)" class="cte-action cte-action-save"></span>' +
-                            '<span ng-mousedown="save($event)" class="cte-action cte-action-cancel"></span>' +
+                            '<span ng-mousedown="cancel($event)"><i class="fa fa-times-circle"></i></span>' +
+                            '<span ng-mousedown="save($event)"><i class="fa fa-check-circle"></i></span>' +
                             '</span>' +
                         '</div>' +
                     '</div>',
@@ -139,9 +138,7 @@ function clickToEdit($q, $timeout) {
 
             this.disableEditor = function(){
                 $scope.editor.enabled = false;
-                if ($scope.allowUncommitted) {
-                    updateValue(initialValue);
-                }
+                updateValue(initialValue);
             };
 
             this.modelSetter = function(setterFunction){
