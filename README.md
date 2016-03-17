@@ -25,9 +25,9 @@ Also feel free to fork this repository and customize it to your needs.
     </click-to-edit>
 
 
-Click to edit relies on the ng-model of the input field to bind
-and `onSave` function to the input. `onSave` is a function provided
-in the directive declaration that returns a `promise`.
+Click to edit relies on the `ng-model` of the input field to bind
+the `onSave` function of the wrapper dir to the input. `onSave` is 
+a function provided in the directive declaration that returns a `promise`.
 
 Simply decorate the input field with `edit-input` and then wrap it
 with `click-to-edit` to get up and running. We use this two directive
